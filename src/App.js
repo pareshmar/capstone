@@ -6,33 +6,37 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import { AuthProvider } from './Auth';
 import PrivateRoute from './Privateroute';
 // Components
+import Categories from './Pages/Categories';
 
 // Pages
-import Login from './Login';
-import Feed from "./Feed";
-import SignUp from './Signup';
-import SignUpTwo from './Signuptwo'
+import Login from './Pages/Login';
+import Feed from "./Pages/Feed";
+import SignUp from './Pages/Signup';
+import SignUpTwo from './Pages/Signuptwo'
+import Profile from './Pages/Profile';
 // import  ForgotPassword  from './ForgotPassword';
 
 function App() {
   return (
     <div className="App">
-      {/* <Upload/> */}
+      {/* <Upload/>
+      <Categories/> */}
 
-      <AuthProvider>
+       <AuthProvider>
         <Router>
           <div>
             <PrivateRoute exact path="/" component={Feed}/>
+            <PrivateRoute exact path="/profile" component={Profile}/>
             <Route exact path="/signup" component={SignUp}/>
             <Route exact path="/login" component={Login}/>
             <Route exact path="/signuptwo" component={SignUpTwo}/>
-            {/* this path wont show up */}
+          
             
-             {/* <Route exact path="/forgotpassword" component={ForgotPassword}/>  */}         
+           {/* <Route exact path="/forgotpassword" component={ForgotPassword}/>      */}
 
           </div>
         </Router>
-      </AuthProvider>
+      </AuthProvider> 
 
     </div>
 
